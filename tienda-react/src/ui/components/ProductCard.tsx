@@ -2,6 +2,7 @@ import formatearPrecio from "../formato";
 import type { Producto } from "../../dominio/tipos";
 import EtiquetaStock from "./EtiquetaStock";
 import { memo } from "react";
+import { Link } from "react-router-dom";
 
 interface Props {
   producto : Producto;
@@ -13,6 +14,9 @@ function ProductCard({ producto, onAgregar } : Props) {
   return (
     <article className={`w-64 rounded-xl border p-4 ${agotado && 'opacity-50'}`}>
         <img src={producto.imagen} alt={producto.nombre} className="mb-3 aspect-square object-contain" />
+        <Link to={`/producto/${producto.id}`} className="underline text-sm">
+          Ver detalle
+        </Link>
         <p className="text-sm text-gray-500">{producto.marca}</p>
         <h2 className="font-semibold">{producto.nombre}</h2>
         <p className="text-sm">{

@@ -1,7 +1,31 @@
 import type { Producto } from "../dominio/tipos";
 
 export const productos: Producto[] = [
-  { id: 1, nombre: 'Audífonos inalámbricos2', marca: 'TechSound', precio: 249.9, imagen: 'https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20Airpods/1.png', stock: 12, categoria : 'audio' },
-  { id: 2, nombre: 'Laptop ultradelgada 14"', marca: 'Nova', precio: 3499, imagen: 'https://cdn.dummyjson.com/products/images/laptops/Asus%20Zenbook%20Pro%20Dual%20Screen%20Laptop/1.png', stock: 0, categoria: 'laptops' },
-  { id: 3, nombre: 'Reloj inteligente', marca: 'Clik', precio: 499.9, imagen: 'https://cdn.dummyjson.com/products/images/mens-watches/Brown%20Leather%20Belt%20Watch/1.png', stock: 3, categoria : 'relojes' },
+  {
+    id: 1,
+    nombre: 'Laptop ASUS Vivobook',
+    marca: 'ASUS',
+    precio: 2499.9,
+    imagen: 'https://cdn.dummyjson.com/products/images/laptops/Asus%20Zenbook%20Pro%20Dual%20Screen%20Laptop/1.png',
+    stock: 12,
+    categoria: 'laptops'
+  },
+  {
+    id: 2,
+    nombre: 'Laptop HP EliteBook',
+    marca: 'HP',
+    precio: 3299,
+    imagen: 'https://cdn.dummyjson.com/products/images/laptops/HP%20Pavilion%2015%20Laptop/1.png',
+    stock: 0,
+    categoria: 'laptops'
+  },
+  {
+    id: 3,
+    nombre: 'Laptop Lenovo IdeaPad',
+    marca: 'Lenovo',
+    precio: 2899.9,
+    imagen: 'https://cdn.dummyjson.com/products/images/laptops/Lenovo%20Yoga%20920/1.png',
+    stock: 3,
+    categoria: 'laptops'
+  }
 ];

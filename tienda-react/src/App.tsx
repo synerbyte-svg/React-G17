@@ -21,7 +21,7 @@ export default function App() {
     const controlador = new AbortController();
     async function cargar () {
       try {
-        const resultado = await obtenerProductos();
+        const resultado = await obtenerProductos(controlador.signal);
         setProductos(resultado.productos);
         setEsRespaldo(resultado.esRespaldo);
         setEstado('listo');

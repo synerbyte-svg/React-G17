@@ -24,21 +24,37 @@ function mapearProducto (crudo : ProductoAPI) : Producto {
     }
 }
 
-export async function obtenerProductos(): Promise <{ productos : Producto[] ; esRespaldo: boolean}> {
+export async function obtenerProductos(
+    signal?: AbortSignal
+): Promise<{ productos: Producto[]; esRespaldo: boolean }> {
     try {
-        const r = await fetch(`${BASE}/products/category/laptops?limit=24`);
-        if(!r.ok) throw new Error (`HTTP ${r.status}`);
-        const data = (await r.json()) as { products : ProductoAPI[]};
+        const r = await fetch(
+            `${BASE}/products/category/laptops?limit=24`,
+            { signal }
+        );
+
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+
+        const data = (await r.json()) as { products: ProductoAPI[] };
+
         return {
-            productos : data.products.map(mapearProducto),
-            esRespaldo : false
-        }
+            productos: data.products.map(mapearProducto),
+            esRespaldo: false
+        };
+
     } catch (error) {
-        if(error instanceof DOMException && error.name === 'AbortError') throw Error;
-        console.warn('Api no disponible, usando el catalogo semilla.', error instanceof Error ? error.message : error);
+        if (error instanceof DOMException && error.name === 'AbortError') {
+            throw error;
+        }
+
+        console.warn(
+            'API no disponible, usando el catálogo semilla.',
+            error instanceof Error ? error.message : error
+        );
+
         return {
-            productos : respaldo,
-            esRespaldo : true
+            productos: respaldo,
+            esRespaldo: true
         };
     }
 }

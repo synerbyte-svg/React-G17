@@ -9,6 +9,7 @@ import NoEncontrada from "./ui/pages/NoEncontrada"
 import Checkout from "./ui/pages/Checkout"
 import Login from "./ui/pages/Login";
 import RutaProtegida from "./ui/components/RutaProtegida";
+import Favoritos from "./ui/pages/Favoritos";
 
 export default function App() {
 
@@ -51,6 +52,10 @@ export default function App() {
         <Route element={<RutaProtegida/>}>
           <Route  path="/checkout" element = {
             <Checkout/>
+          }
+          />
+          <Route path="/favoritos" element={
+            <Favoritos/>
           }
           />
         </Route>

@@ -17,6 +17,7 @@ export default function Header ( {nombre , eslogan = "Tecnologia para todos"} : 
                 <nav className="mt-2 flex gap-4">
                     <NavLink to="/" className={({isActive}) => (isActive ? 'font-bold underline' : 'hover:underline')}>Catalogo</NavLink>
                     <NavLink to="/checkout" className={({isActive}) => (isActive ? 'font-bold underline' : 'hover:underline')}>Checkout</NavLink>
+                    <NavLink to="/favoritos" className={({isActive}) => (isActive ? 'font-bold underline' : 'hover:underline')}>♥ Mis favoritos</NavLink>
                 </nav>
             </div>
             <p>{unidades} productos - {formatearPrecio(total)}</p>

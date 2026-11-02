@@ -9,7 +9,7 @@ type Errores = Partial<Record<keyof DatosEnvio, string>>
 function validar (form : DatosEnvio) : Errores {
     const errores : Errores = {}
     if(form.nombre.trim().length < 3) errores.nombre = 'Escribe al menos 3 caracteres';
-    if(!/^\S+@\S+\.\S+$/.test(form.email)) errores.email = 'Escribe un correo electronico valido';
+    if (!/^\S+@\S+\.\S+$/.test(form.email)) errores.email = 'Escribe un correo electronico valido';
     if(form.direccion.trim().length < 5) errores.direccion = 'Escribe una direccion mas completa';
     if(!/^[0-9\s+-]{7,}$/.test(form.telefono)) errores.telefono = 'Escriba almenos 7 digitos';
     return errores;
@@ -102,7 +102,7 @@ export default function Checkout () {
                 }
             </label>
             <p className="text-sm">Total a pagar : <b>{formatearPrecio(total)}</b></p>
-            <button type="submit" className="mt-2 rounded-full border px-4 py-2">Confirmar pedido</button>
+            <button type="submit" disabled={hayErrores} className="mt-2 rounded-full border px-4 py-2">Confirmar pedido</button>
         </form>
     )
 }
